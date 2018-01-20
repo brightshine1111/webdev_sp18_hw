@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en-US">
+  
+<style>
+  body {
+    text-align: center;
+  }
+  
+  .bottom {
+    position: absolute;
+    bottom: 5px;
+  }
+</style>
+  
+<head>
+  <meta charset="UTF-8">
+  <title>HW02 Task 2</title>
+</head>
+  
+<body>
+  <h1>HW02 Task 2</h1>
+  <h2 id="valhead">!VAL</h2>
+  <p>
+    <button id="btn_alrt">Alert</button>
+    <button id="btn_inc">Increment</button>
+    <button id="btn_apnd">Append</button>
+  </p>
+  <p><a href="index.html">Index</a></p>
+  <div class="bottom" id="appendix">
+  </div>
+</body>
+
+<script>
+  (function() {
+    "use strict";
+    
+    var x = 10;
+    var valhead = document.getElementById("valhead");
+    
+    function init() {
+      valhead.innerText = x;
+    }
+    
+    function alert() {
+      window.alert("The current value is " + x);
+    }
+    
+    function inc() {
+      x += 1;
+      valhead.innerText = x;
+    }
+    
+    function append() {
+      var p = document.createElement("p");
+      var text = document.createTextNode(x);
+      p.appendChild(text);
+      document.getElementById("appendix").appendChild(p);
+    }
+    
+    window.addEventListener("load", init, false);
+    document.getElementById("btn_alrt").addEventListener("click", alert, false);
+    document.getElementById("btn_inc").addEventListener("click", inc, false);
+    document.getElementById("btn_apnd").addEventListener("click", append, false);
+  })();
+</script>
+
+</html>
